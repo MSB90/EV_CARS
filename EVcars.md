@@ -1,7 +1,10 @@
 # SQL Q&A
 
+<br>
+
 ### these are the libraries used 
 
+<br>
 
 ```python
 !pip install sqlalchemy PyMySQL --quiet
@@ -53,16 +56,15 @@ conn_str = "mysql+pymysql://root:{}@localhost:3306/EV_schema".format(password)
 ```python
 %sql {conn_str}
 ```
+<br>
 
 # The EV Cars Data 
 
+<br>
 
 ```python
 %sql SELECT * from evcars;
 ```
-
-     * mysql+pymysql://root:***@localhost:3306/EV_schema
-    98 rows affected.
 
 
 
@@ -1659,7 +1661,8 @@ conn_str = "mysql+pymysql://root:{}@localhost:3306/EV_schema".format(password)
     </tbody>
 </table>
 
-
+<br>
+<br>
 
 ## Question 1: How many car models are included in the dataset?
 
@@ -1670,8 +1673,7 @@ select count(distinct model) as TotalModel from evcars;
 
 ```
 
-     * mysql+pymysql://root:***@localhost:3306/EV_schema
-    1 rows affected.
+     
 
 
 
@@ -1691,6 +1693,9 @@ select count(distinct model) as TotalModel from evcars;
 </table>
 
 
+<br>
+<br>
+
 
 ## Question 2: What is the average top speed of all the cars in the dataset?
 
@@ -1700,8 +1705,7 @@ select count(distinct model) as TotalModel from evcars;
 select avg(TopSpeed_Kmh) as AVG_topSpeed from evcars;
 ```
 
-     * mysql+pymysql://root:***@localhost:3306/EV_schema
-    1 rows affected.
+     
 
 
 
@@ -1721,6 +1725,9 @@ select avg(TopSpeed_Kmh) as AVG_topSpeed from evcars;
 </table>
 
 
+<br>
+<br>
+
 
 ## Question 3: Which car has the highest acceleration time (AccelSec)?
 
@@ -1730,8 +1737,6 @@ select avg(TopSpeed_Kmh) as AVG_topSpeed from evcars;
 select brand, model, Accelsec from evcars order by AccelSec asc Limit 1;
 ```
 
-     * mysql+pymysql://root:***@localhost:3306/EV_schema
-    1 rows affected.
 
 
 
@@ -1755,6 +1760,9 @@ select brand, model, Accelsec from evcars order by AccelSec asc Limit 1;
 </table>
 
 
+<br>
+<br>
+
 
 ## Question 4: What is the total range (Range_Km) covered by all SUVs?
 
@@ -1764,8 +1772,7 @@ select brand, model, Accelsec from evcars order by AccelSec asc Limit 1;
 select sum(range_km) as TotalRange_SUV from evcars Where Bodystyle = 'SUV';
 ```
 
-     * mysql+pymysql://root:***@localhost:3306/EV_schema
-    1 rows affected.
+     
 
 
 
@@ -1785,6 +1792,9 @@ select sum(range_km) as TotalRange_SUV from evcars Where Bodystyle = 'SUV';
 </table>
 
 
+<br>
+<br>
+
 
 ## Question 5: How many cars have a rapid charging option (RapidCharge = 'Yes')?
 
@@ -1794,8 +1804,7 @@ select sum(range_km) as TotalRange_SUV from evcars Where Bodystyle = 'SUV';
 select count(*) as TotalRapidChargeCars from evcars Where RapidCharge = 'Yes';
 ```
 
-     * mysql+pymysql://root:***@localhost:3306/EV_schema
-    1 rows affected.
+    
 
 
 
@@ -1815,6 +1824,9 @@ select count(*) as TotalRapidChargeCars from evcars Where RapidCharge = 'Yes';
 </table>
 
 
+<br>
+<br>
+
 
 ## Question 6: What is the average price of cars in each segment (Segment column)?
 
@@ -1824,8 +1836,7 @@ select count(*) as TotalRapidChargeCars from evcars Where RapidCharge = 'Yes';
 select segment, Avg(priceeuro) as AvgPrive from evcars Group by Segment;  
 ```
 
-     * mysql+pymysql://root:***@localhost:3306/EV_schema
-    8 rows affected.
+     
 
 
 
@@ -1875,6 +1886,9 @@ select segment, Avg(priceeuro) as AvgPrive from evcars Group by Segment;
 </table>
 
 
+<br>
+<br>
+
 
 ## Question 7: What is the most common powertrain type (PowerTrain column)?
 
@@ -1887,8 +1901,7 @@ order by Powertraincount
 desc limit 1;  
 ```
 
-     * mysql+pymysql://root:***@localhost:3306/EV_schema
-    1 rows affected.
+     
 
 
 
@@ -1910,6 +1923,9 @@ desc limit 1;
 </table>
 
 
+<br>
+<br>
+
 
 ## Question 8: How many cars have a range greater than 300 km and are priced under 40000 Euros?
 
@@ -1921,8 +1937,7 @@ from evcars where range_km > 300
 AND Priceeuro < 40000;
 ```
 
-     * mysql+pymysql://root:***@localhost:3306/EV_schema
-    1 rows affected.
+    
 
 
 
@@ -1941,6 +1956,9 @@ AND Priceeuro < 40000;
     </tbody>
 </table>
 
+<br>
+<br>
+
 
 
 ## Question 9: What is the average efficiency (Efficiency_WhKm) of cars in each body style?
@@ -1953,8 +1971,7 @@ as AvgEfficiency
 from evcars group by Bodystyle;
 ```
 
-     * mysql+pymysql://root:***@localhost:3306/EV_schema
-    9 rows affected.
+    
 
 
 
@@ -2006,8 +2023,8 @@ from evcars group by Bodystyle;
         </tr>
     </tbody>
 </table>
-
-
+<br>
+<br>
 
 ## Question 10: Which plug type (PlugType column) is associated with the highest number of cars?
 
@@ -2020,8 +2037,7 @@ order by plugtypecount
 desc LIMIT 1;
 ```
 
-     * mysql+pymysql://root:***@localhost:3306/EV_schema
-    1 rows affected.
+    
 
 
 
